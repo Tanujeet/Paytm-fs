@@ -1,9 +1,9 @@
 import express, { json, Router } from "express";
-import User from "db.js";
+import { User } from "../db.js";
 import zod from "zod";
 import JWT_SECRET from "../config.js";
 import jwt from "jsonwebtoken";
-import authMiddleware from "./middleware/middleware.js";
+import authMiddleware from "../middleware/middleware.js";
 
 const router = express.Router();
 

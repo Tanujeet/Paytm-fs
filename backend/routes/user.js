@@ -1,18 +1,19 @@
-import express, { json } from "express";
+import express, { json, Router } from "express";
 import User from "db.js";
 import zod from "zod";
 import JWT_SECRET from "../config";
 import jwt from "jsonwebtoken";
+import authMiddleware from "./middleware/middleware.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {});
 const signUpSchema = zod.object({
   username: zod.string().email(),
   password: zod.string(),
   firstName: zod.string(),
   lastName: zod.string(),
 });
+
 router.post("/signup", async (req, res) => {
   const body = req.body();
   const { success } = signUpSchema.safeParse(req.body);
@@ -40,6 +41,26 @@ router.post("/signup", async (req, res) => {
   res.json({
     message: "user created succesfully",
     token: token,
+  });
+});
+
+const updateBody = zod.object({
+  password: zod.string().optional(),
+  firstName: zod.string().optional(),
+  lastName: zod.string().optional(),
+});
+router.put("/", authMiddleware, async (res, req) => {
+  const { success } = updateBody.safeParse(req.body);
+  if (!success) {
+    res.statusCode(411)({
+      message: "error while updating",
+    });
+  }
+  await User.updateOne(req.body, {
+    id: req.userId,
+  });
+  res.json({
+    message: "updated successfully",
   });
 });
 export default router;

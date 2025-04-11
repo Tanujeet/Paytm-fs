@@ -1,5 +1,5 @@
 import express, { json, Router } from "express";
-import { User } from "../db.js";
+import { User, Account } from "../db.js";
 import zod from "zod";
 import JWT_SECRET from "../config.js";
 import jwt from "jsonwebtoken";
@@ -9,9 +9,9 @@ const router = express.Router();
 
 const signupBody = zod.object({
   username: zod.string().email(),
+  password: zod.string(),
   firstName: zod.string(),
   lastName: zod.string(),
-  password: zod.string(),
 });
 
 router.post("/signup", async (req, res) => {

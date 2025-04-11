@@ -1,7 +1,7 @@
 import express, { json, Router } from "express";
 import User from "db.js";
 import zod from "zod";
-import JWT_SECRET from "../config";
+import JWT_SECRET from "../config.js";
 import jwt from "jsonwebtoken";
 import authMiddleware from "./middleware/middleware.js";
 

@@ -1,7 +1,5 @@
 import express from "express";
-import userRouter from "./user.js";
-const router = express.Router;
+const mainRouter = require("./routes/index");
+const app = express();
 
-router.use("/user", userRouter);
-
-export default router;
+app.use("/api/v1", mainRouter);

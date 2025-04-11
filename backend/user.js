@@ -1,4 +1,5 @@
-import express from express
-const router = express.router
+import express from "express";
 
-module.exports=router;
+const router = express.Router();
+
+export default router;

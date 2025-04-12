@@ -21,28 +21,28 @@ export const Signup = () => {
             onChange={(e) => {
               setFirstName(e.target.value);
             }}
-            placeholder={"Tanujeet"}
+            placeholder={""}
             label={"First Name"}
           />
           <InputBox
             onChange={(e) => {
               setLastName(e.target.value);
             }}
-            placeholder={"Singh"}
+            placeholder={""}
             label={"Last Name"}
           />
           <InputBox
             onChange={(e) => {
               setUsername(e.target.value);
             }}
-            placeholder={"singhtanujeet@gmail.com"}
+            placeholder={""}
             label={"Email"}
           />
           <InputBox
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder={"170604"}
+            placeholder={""}
             label={"password"}
           />
           <div className="pt-4">

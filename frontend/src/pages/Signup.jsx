@@ -21,7 +21,7 @@ export const Signup = () => {
           </div>
           <BottomWarning
             label={"Already have an account?"}
-            bottomText={"Sign In"}
+            buttonText={"Sign In"}
             to={"/signin"}
           />
         </div>

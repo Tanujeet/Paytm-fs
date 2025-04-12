@@ -1,5 +1,8 @@
 import React from "react";
-import Heading from "../Components/Heading";
+import { BottomWarning } from "../Components/BottomWarning";
+import { Button } from "../Components/Button";
+import { Heading } from "../Components/Heading";
+import { InputBox } from "../Components/InputBox";
 import { SubHeading } from "../Components/SubHeading";
 
 export const Signin = () => {
